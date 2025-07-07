@@ -10,11 +10,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <table border="3">
     <tr bgcolor="ffa652">
       <th>Title</th>
-      <th>Price</th>
+      <th>Price (RM)</th>
 	  <th>Author</th>
 	  <th>Publisher</th>
 	  <th>Genre</th>
-	  <th>Weight</th>
+	  <th>Weight (g)</th>
 	  <th>ISBN</th>
 	  <th>Synopsis</th>
     </tr>
