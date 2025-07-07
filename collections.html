@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Collections</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400&family=Poppins:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff1e0;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 2px solid #000;
+      padding: 20px 0;
+      background-color: #fff1e0;
+    }
+
+    .top-row {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+      gap: 15px;
+    }
+
+    .nav a button {
+      padding: 10px 20px;
+      border: 2px solid #000;
+      background-color: #fff;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav a .active {
+      background-color: #f4a041;
+      color: #fff;
+    }
+
+    .nav a button:hover {
+      background-color: #e0941d;
+      border-color: #e0941d;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 40px 0 20px;
+      color: #333;
+    }
+
+    .collection {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+      padding: 20px;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .book {
+      position: relative;
+      width: 200px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .book img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .book:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .book:hover img {
+      transform: scale(1.1);
+      filter: brightness(80%);
+    }
+
+    .book div {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      font-weight: bold;
+      color: #fff;
+      font-size: 1.2em;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 5px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .summary-button {
+      display: block;
+      margin: 30px 500px 60px;
+      padding: 14px 25px;
+      background-color: #f4a041;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .summary-button:hover {
+      background-color: #e0941d;
+    }
+
+    footer {
+      border-top: 2px solid #000;
+      padding: 20px 30px;
+      background-color: #fff1e0;
+      font-size: 0.85em;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #f4a041;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .bottom-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.75em;
+      color: #777;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #f4a041;
+    }
+
+    .social-icon {
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .logo-img, .footer-logo {
+      height: 80px;
+    }
+
+    .cart-icon, .profile-icon {
+      height: 24px;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      width: 250px;
+    }
+
+    .search-form button {
+      padding: 8px 15px;
+      background-color: #f4a041;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="top-row">
+      <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo-img" /></a>
+      <div class="icons">
+        <span>Hi, User!</span>
+        <a href="registration.html"><img src="images/profile.png" alt="Profile" class="profile-icon" /></a>
+        <a href="cart.html"><img src="images/cart.png" alt="Cart" class="cart-icon" /></a>
+        <form action="search.html" method="GET" class="search-form">
+          <input type="text" name="query" placeholder="Search books..." required />
+          <button type="submit">🔍</button>
+        </form>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="index.html"><button>Homepage</button></a>
+      <a href="about.html"><button>About Us</button></a>
+      <a href="#collections"><button class="active">Collections</button></a>
+    </div>
+  </header>
+
+  <h2>Collection Books</h2>
+
+  <div class="collection" id="bookList">
+    <!-- Static Books (Manual) -->
+    <div class="book"><a href="book1.html"><img src="images/book1.png" alt="Book"><div>Misteri Di Rumah Gadang Styles</div></a></div>
+    <div class="book"><a href="book2.html"><img src="images/book2.png" alt="Book"><div>Tuhan Begitu Dekat</div></a></div>
+    <div class="book"><a href="book3.html"><img src="images/book3.png" alt="Book"><div>Ceritera Dari Kafe</div></a></div>
+    <div class="book"><a href="book4.html"><img src="images/book4.png" alt="Book"><div>Nasihat Buat Pemerintah</div></a></div>
+    <div class="book"><a href="book5.html"><img src="images/book5.png" alt="Book"><div>Kefakiran Dan Zuhud Dalam Islam</div></a></div>
+    <div class="book"><a href="book6.html"><img src="images/book6.png" alt="Book"><div>Discourses of Rumi</div></a></div>
+    <div class="book"><a href="book7.html"><img src="images/book7.png" alt="Book"><div>Mahabharata Epic The Bibliophile</div></a></div>
+    <div class="book"><a href="book8.html"><img src="images/book8.png" alt="Book"><div>Rumi Mystic And Poet</div></a></div>
+    <div class="book"><a href="book9.html"><img src="images/book9.png" alt="Book"><div>Selamat Tinggal Kucing</div></a></div>
+    <div class="book"><a href="book10.html"><img src="images/book10.png" alt="Book"><div>Detective Moden Edgar Allan Poe</div></a></div>
+    <div class="book"><a href="book11.html"><img src="images/book11.png" alt="Book"><div>Be Eshme Elohim</div></a></div>
+    <div class="book"><a href="book12.html"><img src="images/book12.png" alt="Book"><div>Hikayat Sang Kancil & Sulaiman</div></a></div>
+  </div>
+
+  <!-- XML Book Summary Button -->
+  <a href="collections.xml" class="summary-button" target="_blank">📖 View Book Summary</a>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <a href="index.html"><img src="images/logo.png" alt="Footer Logo" class="footer-logo"></a>
+        <h4>Social Media</h4>
+        <p><a href="https://www.facebook.com/bibliopress" target="_blank"><img src="images/facebook.png" class="social-icon" alt="Facebook"> The Biblio Press</a></p>
+        <p><a href="https://x.com/BiblioPress" target="_blank"><img src="images/x-twitter.jpg" class="social-icon" alt="Twitter"> @BiblioPress</a></p>
+        <p><a href="https://www.instagram.com/bibliopress/" target="_blank"><img src="images/instagram.png" class="social-icon" alt="Instagram"> @bibliopress</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 (+60) 14 947 0499</p>
+        <a href="mailto:info@thebibliopress.com">✉ info@thebibliopress.com</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Find Us</h4>
+        <p>📍 G22, Menara Mutiara Majestic,<br>Jalan Othman, 46000<br>Petaling Jaya,<br>Selangor, Malaysia.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Operating Hours</h4>
+        <p>🕒 Monday–Friday:<br>11.00 am – 6.00 pm</p>
+      </div>
+    </div>
+
+    <div class="bottom-footer">
+      © The Biblio Press Enterprise – Powered by <a href="#" target="_blank">Sindiket Tanda Bacha</a>. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- LOAD XML BOOKS -->
+  <script>
+    fetch('collections.xml')
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(data, "application/xml");
+        const books = xml.getElementsByTagName("book");
+        const container = document.getElementById("bookList");
+
+        for (let i = 0; i < books.length; i++) {
+          const title = books[i].getElementsByTagName("title")[0].textContent;
+          const image = books[i].getElementsByTagName("image")[0].textContent;
+          const link = books[i].getElementsByTagName("link")[0].textContent;
+
+          const bookDiv = document.createElement("div");
+          bookDiv.className = "book";
+          bookDiv.innerHTML = `
+            <a href="${link}" target="_blank">
+              <img src="${image}" alt="${title}">
+              <div>${title}</div>
+            </a>`;
+          container.appendChild(bookDiv);
+        }
+      })
+      .catch(error => console.error("Error loading books.xml:", error));
+  </script>
+
+</body>
+</html>

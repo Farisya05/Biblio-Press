@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registration 
+  xmlns="https://www.w3schools.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://www.w3schools.com registration.xsd">
+  
+<newregistration>New Registration</newregistration>
+  <user>
+    <details>
+      <fullname>Nur Nadhratul Idayu Binti Baharin</fullname>
+      <email>idayu0607@gmail.com</email>
+	  <password>abcd12345</password>
+	  <password_confirmation>abcd12345</password_confirmation>
+	  <phone_number>011-3471542</phone_number>
+    </details>
+  </user>
+
+<address>Enter Your Address Details</address>
+  <user_address>
+    <details>
+      <home_address>No 3 Jalan Pulau Angsa</home_address>
+      <city>Shah Alam</city>
+	  <state>Selangor</state>
+	  <postal_code>40150</postal_code>
+	  <country>Malaysia</country>
+    </details>
+  </user_address>  
+
+</registration>

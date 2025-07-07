@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.w3schools.com"
+           xmlns="https://www.w3schools.com"
+           elementFormDefault="qualified">
+
+  <xs:element name="registration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="newregistration" type="xs:string"/>
+        
+        <xs:element name="user" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="details" type="userdetails" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="address" type="xs:string" minOccurs="1"/>
+
+        <xs:element name="user_address" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="details" type="addressdetails" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="userdetails">
+    <xs:sequence>
+      <xs:element name="fullname" type="xs:string" minOccurs="1"/>
+      <xs:element name="email" type="xs:string" minOccurs="1"/>
+      <xs:element name="password" type="xs:string" minOccurs="1"/>
+      <xs:element name="password_confirmation" type="xs:string" minOccurs="1"/>
+      <xs:element name="phone_number" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\d{3}-\d{7,8}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="addressdetails">
+    <xs:sequence>
+      <xs:element name="home_address" type="xs:string" minOccurs="1"/>
+      <xs:element name="city" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="state" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Perlis"/>
+            <xs:enumeration value="Kedah"/>
+            <xs:enumeration value="Pulau Pinang"/>
+            <xs:enumeration value="Perak"/>
+            <xs:enumeration value="Selangor"/>
+            <xs:enumeration value="Negeri Sembilan"/>
+            <xs:enumeration value="Melaka"/>
+            <xs:enumeration value="Johor"/>
+            <xs:enumeration value="Pahang"/>
+            <xs:enumeration value="Terengganu"/>
+            <xs:enumeration value="Kelantan"/>
+            <xs:enumeration value="Sabah"/>
+            <xs:enumeration value="Sarawak"/>
+            <xs:enumeration value="Wilayah Persekutuan Kuala Lumpur"/>
+            <xs:enumeration value="Wilayah Persekutuan Labuan"/>
+            <xs:enumeration value="Wilayah Persekutuan Putrajaya"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="postal_code" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:totalDigits value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="country" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Malaysia"/>
+            <xs:enumeration value="Singapore"/>
+            <xs:enumeration value="Brunei"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

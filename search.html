@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search • The Biblio Press</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- base ---------- */
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:'Lato',sans-serif;background:#fff1e0;color:#333}
+
+    /* ---------- header / nav ---------- */
+    header{display:flex;flex-direction:column;align-items:center;padding:20px 0;border-bottom:2px solid #000;background:#fff1e0}
+    .top-row{width:90%;display:flex;justify-content:space-between;align-items:center}
+    .logo-img{height:80px}
+    .icons{display:flex;align-items:center;gap:15px}
+    .cart-icon,.profile-icon{height:24px}
+
+    .search-form{display:flex;align-items:center;gap:10px}
+    .search-form input{padding:8px;border:1px solid #000;border-radius:5px;width:250px}
+    .search-form button{padding:8px 15px;background:#f4a041;border:none;border-radius:5px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:500}
+
+    .nav{display:flex;justify-content:center;align-items:center;margin:15px 0;gap:15px}
+    .nav button{padding:10px 20px;border:2px solid #000;background:#fff;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:1px;transition:.3s}
+    .nav button:hover{background:#e0941d;border-color:#e0941d}
+
+    /* ---------- search results ---------- */
+    main{max-width:1100px;margin:40px auto;padding:0 20px}
+    h2{margin:0 0 20px;font-size:1.4em;font-weight:700;font-family:'Playfair Display',serif}
+    .grid{display:flex;flex-wrap:wrap;gap:20px}
+    .card{text-align:center;width:160px}
+    .card img{width:160px;height:220px;object-fit:cover;border:2px solid #fff1e0;transition:transform .25s}
+    .card img:hover{transform:scale(1.05)}
+    .card p{margin:8px 0 0;font-size:.9em}
+
+    .empty{margin:60px 0;text-align:center;font-size:1.1em}
+
+    /* ---------- footer ---------- */
+    footer{margin-top:60px;padding:20px 30px;border-top:2px solid #000;background:#fff1e0;font-size:.85em}
+    .footer-container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+    .footer-section{flex:1 1 200px}
+    .footer-section h4{margin-bottom:10px;font-weight:700;color:#f4a041;font-family:'Playfair Display',serif}
+    .social-icon{height:20px;margin-right:8px;vertical-align:middle}
+    .footer-logo{height:60px;margin-bottom:10px}
+    .bottom-footer{text-align:center;margin-top:20px;font-size:.75em;color:#777}
+
+    a{text-decoration:none;color:#333;transition:color .3s}
+    a:hover{color:#f4a041}
+  </style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="top-row">
+    <a href="index.html"><img src="images/logo.png" class="logo-img" alt="Logo"></a>
+
+    <div class="icons">
+      <span>Hi, User!</span>
+      <a href="registration.html"><img src="images/profile.png" class="profile-icon" alt="Profile"></a>
+      <a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a>
+
+      <!-- search bar – submits to this page via GET -->
+      <form class="search-form" action="search.html" method="GET">
+        <input type="text" name="query" id="searchBox" placeholder="Search books…" required>
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- navigation menu -->
+  <nav class="nav">
+    <a href="index.html"><button>Homepage</button></a>
+    <a href="about.html"><button>About Us</button></a>
+    <a href="collections.html"><button>Collections</button></a>
+  </nav>
+</header>
+
+<!-- ========== MAIN ========== -->
+<main>
+  <h2 id="resultHeader"></h2>
+  <div id="results" class="grid"></div>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <a href="index.html"><img src="images/logo.png" class="footer-logo" alt="Footer Logo"></a>
+      <h4>Social Media</h4>
+      <p><a href="https://www.facebook.com/bibliopress" target="_blank"><img src="images/facebook.png" class="social-icon">The Biblio Press</a></p>
+      <p><a href="https://x.com/BiblioPress" target="_blank"><img src="images/x-twitter.jpg" class="social-icon">@BiblioPress</a></p>
+      <p><a href="https://www.instagram.com/bibliopress/" target="_blank"><img src="images/instagram.png" class="social-icon">@bibliopress</a></p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>📞 (+60) 14 947 0499</p>
+      <a href="mailto:info@thebibliopress.com">✉ info@thebibliopress.com</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Find Us</h4>
+      <p>📍 G22, Menara Mutiara Majestic,<br>Jalan Othman, 46000 Petaling Jaya,<br>Selangor, Malaysia.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Operating Hours</h4>
+      <p>🕒 Monday–Friday:<br>11.00 am – 6.00 pm</p>
+    </div>
+  </div>
+
+  <div class="bottom-footer">
+    © The Biblio Press Enterprise – Powered by Fayuna Pages. All Rights Reserved.
+  </div>
+</footer>
+
+<!-- ========== SCRIPT ========== -->
+<script>
+/* --- mini book “database” --- */
+const books = [
+  { title:'Misteri Di Rumah Gadang Styles', img:'images/book1.png', link:'book1.html' },
+  { title:'Tuhan Begitu Dekat',             img:'images/book2.png', link:'book2.html' },
+  { title:'Ceritera Dari Kafe',             img:'images/book3.png', link:'book3.html' },
+  { title:'Nasihat Buat Pemerintah',        img:'images/book4.png', link:'book4.html' },
+  { title:'Kefakiran Dan Zuhud Dalam Islam',img:'images/book5.png', link:'book5.html' },
+  { title:'Discourses of Rumi',             img:'images/book6.png', link:'book6.html' },
+  { title:'Mahabharata Epic The Bibliophile',img:'images/book7.png', link:'book7.html' },
+  { title:'Rumi Mystic And Poet',           img:'images/book8.png', link:'book8.html' },
+  { title:'Selamat Tinggal Kucing',         img:'images/book9.png', link:'book9.html' },
+  { title:'Detective Moden Edgar Allan Poe',img:'images/book10.png',link:'book10.html' },
+  { title:'Be Eshme Elohim',                img:'images/book11.png',link:'book11.html' },
+  { title:'Hikayat Sang Kancil & Sulaiman', img:'images/book12.png',link:'book12.html' }
+];
+
+/* --- read ?query= from URL --- */
+const params = new URLSearchParams(window.location.search);
+const query  = (params.get('query') || '').trim();
+
+/* show query in input field */
+document.getElementById('searchBox').value = query;
+
+/* elements */
+const headerEl = document.getElementById('resultHeader');
+const results  = document.getElementById('results');
+
+/* render */
+if (!query) {
+  headerEl.textContent = 'Please enter a search term.';
+} else {
+  headerEl.textContent = `Results for “${query}”`;
+  const regex   = new RegExp(query, 'i');
+  const matches = books.filter(b => regex.test(b.title));
+
+  if (!matches.length) {
+    results.innerHTML = '<div class="empty">😔 No books found.</div>';
+  } else {
+    results.innerHTML = matches.map(b=>`
+      <div class="card">
+        <a href="${b.link}" target="_blank">
+          <img src="${b.img}" alt="${b.title}">
+          <p>${b.title}</p>
+        </a>
+      </div>`).join('');
+  }
+}
+</script>
+</body>
+</html>

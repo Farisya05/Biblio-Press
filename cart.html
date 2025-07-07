@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart • The Biblio Press</title>
+
+  <!-- Link to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff1e0;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 2px solid #000;
+      padding: 20px 0;
+      background-color: #fff1e0;
+    }
+
+    .top-row {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0;
+      gap: 15px;
+    }
+
+    .nav a button {
+      padding: 10px 20px;
+      border: 2px solid #000;
+      background-color: #fff;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav a .active {
+      background-color: #f4a041;
+      color: #fff;
+    }
+
+    .nav a button:hover {
+      background-color: #e0941d;
+      border-color: #e0941d;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .cart-icon, .profile-icon {
+      height: 24px;
+    }
+
+    .logo-img {
+      height: 80px;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      width: 250px;
+    }
+
+    .search-form button {
+      padding: 8px 15px;
+      background-color: #f4a041;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
+
+    /* Cart Styles */
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+	/* Section Your Cart */
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+	  font-family: 'Playfair Display', serif;
+	  font-size: 2.0em;
+	  font-weight: 700;
+      margin: 40px 0 20px;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      border: 2px solid #000;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #f4f4f4;
+    }
+
+    img.thumb {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+      border: 2px solid #fff1e0;
+    }
+
+    .qty-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .qty-controls input {
+      width: 40px;
+      text-align: center;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .remove {
+      padding: 4px 10px;
+      background: #f9d9d9;
+      border: 1px solid #000;
+    }
+
+    .clear {
+      background: #eee;
+      padding: 8px 14px;
+      border: 1px solid #000;
+      margin-right: 6px;
+    }
+
+    .checkout {
+      padding: 8px 14px;
+      border: 2px solid #000;
+      background: #fff;
+      font-weight: bold;
+    }
+
+    .totals {
+      margin-top: 20px;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    /* Empty Cart Message Styles */
+    .empty-cart-message {
+      text-align: center;
+      font-size: 1.5em;
+      margin-top: 30px;
+    }
+
+    .empty-cart-button {
+      padding: 10px 20px;
+      background-color: #f4a041;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .empty-cart-button:hover {
+      background-color: #e0941d;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer Styles */
+    footer {
+      margin-top: 40px;
+      border-top: 2px solid #000;
+      padding: 20px 30px;
+      background-color: #fff1e0;
+      font-size: 0.85em;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #f4a041;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .bottom-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.75em;
+      color: #777;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #f4a041;
+    }
+
+    .social-icon {
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .footer-logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="top-row">
+      <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo-img"></a>
+      <div class="icons">
+        <span>Hi, User!</span>
+        <a href="registration.html"><img src="images/profile.png" alt="Profile" class="profile-icon"></a>
+        <a href="#cart"><img src="images/cart.png" alt="Cart" class="cart-icon"></a>
+
+        <form action="search.html" method="GET" target="_blank" class="search-form">
+          <input type="text" name="query" placeholder="Search books…" required>
+          <button type="submit">🔍</button>
+        </form>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html"><button>Homepage</button></a>
+      <a href="about.html"><button>About Us</button></a>
+      <a href="collections.html"><button>Collections</button></a>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN CART SECTION ===== -->
+  <main>
+    <h2>Your Cart</h2>
+
+    <!-- dynamic content goes here -->
+    <div id="cart-box"></div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <a href="index.html"><img src="images/logo.png" alt="Footer Logo" class="footer-logo"></a>
+        <h4>Social Media</h4>
+        <p><a href="https://www.facebook.com/bibliopress" target="_blank">
+          <img src="images/facebook.png" class="social-icon"> The Biblio Press</a></p>
+        <p><a href="https://x.com/BiblioPress" target="_blank">
+          <img src="images/x-twitter.jpg" class="social-icon"> @BiblioPress</a></p>
+        <p><a href="https://www.instagram.com/bibliopress/" target="_blank">
+          <img src="images/instagram.png" class="social-icon"> @bibliopress</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 (+60) 14 947 0499</p>
+        <a href="mailto:info@thebibliopress.com">✉ info@thebibliopress.com</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Find Us</h4>
+        <p>📍 G22, Menara Mutiara Majestic,<br>Jalan Othman, 46000 Petaling Jaya,<br>Selangor, Malaysia.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Operating Hours</h4>
+        <p>🕒 Monday–Friday:<br>11.00 am – 6.00 pm</p>
+      </div>
+    </div>
+
+    <div class="bottom-footer">
+      © The Biblio Press Enterprise – Powered by <a href="#">Fayuna Pages</a>. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- ===== CART FUNCTIONALITY (from second file, extended with qty controls & shipping) ===== -->
+  <script>
+  const DELIVERY_FEE = 5;   // flat RM 5 delivery
+
+  function renderCart(){
+    const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+    const box  = document.getElementById('cart-box');
+
+    if(!cart.length){
+      box.innerHTML = `
+        <div class="empty-cart-message">
+            <p>🛒 Your cart is empty.</p>
+            <button class="empty-cart-button" onclick="window.location.href='index.html'">← Keep shopping</button>
+          </div>`;
+      return;
+    }
+
+    /* build rows with +/- qty controls */
+    const rows = cart.map(i=>`
+      <tr>
+        <td><button class="remove" onclick="removeItem('${i.id}')">✖</button></td>
+        <td>
+          <img src="${i.img}" class="thumb" alt="">
+          <div style="font-size:.8em;margin-top:4px">${i.title}</div>
+        </td>
+        <td>RM ${i.price.toFixed(2)}</td>
+        <td>
+          <div class="qty-controls">
+            <button onclick="changeQty('${i.id}',-1)">−</button>
+            <input type="text" value="${i.qty}" readonly>
+            <button onclick="changeQty('${i.id}',1)">+</button>
+          </div>
+        </td>
+        <td>RM ${(i.price*i.qty).toFixed(2)}</td>
+      </tr>`).join('');
+
+    const subtotal = cart.reduce((s,i)=>s+i.price*i.qty,0);
+    const total    = subtotal + DELIVERY_FEE;
+
+    box.innerHTML = `
+      <table>
+        <thead>
+          <tr><th>Remove</th><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th></tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+
+      <div class="totals">
+        Subtotal: RM ${subtotal.toFixed(2)}<br>
+        Delivery: RM ${DELIVERY_FEE.toFixed(2)}<br>
+        <span style="font-size:1.2em">Total: RM ${total.toFixed(2)}</span>
+      </div>
+
+      <div style="text-align:right;margin-top:15px">
+        <button class="clear" onclick="clearCart()">🗑 Clear Cart</button>
+        <button class="checkout" onclick="alert('Checkout coming soon!')">Proceed to Checkout →</button>
+      </div>
+    `;
+  }
+
+  function changeQty(id,delta){
+    const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+    const item = cart.find(i=>i.id===id);
+    if(!item) return;
+    item.qty += delta;
+    if(item.qty<=0){ // auto‑remove if qty hits 0
+      const idx = cart.indexOf(item);
+      cart.splice(idx,1);
+    }
+    localStorage.setItem('cart',JSON.stringify(cart));
+    renderCart();
+  }
+
+  function removeItem(id){
+    let cart = JSON.parse(localStorage.getItem('cart')||'[]');
+    cart = cart.filter(i=>i.id!==id);
+    localStorage.setItem('cart',JSON.stringify(cart));
+    renderCart();
+  }
+
+  function clearCart(){
+    if(confirm('Clear all items?')){
+      localStorage.removeItem('cart');
+      renderCart();
+    }
+  }
+
+  renderCart(); // initial render
+  </script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff1e0;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 2px solid #000;
+      padding: 20px 0;
+      background-color: #fff1e0;
+    }
+
+    .top-row {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+      gap: 15px;
+    }
+
+    .nav a button {
+      padding: 10px 20px;
+      border: 2px solid #000;
+      background-color: #fff;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav a .active {
+      background-color: #f4a041;
+      color: #fff;
+    }
+
+    .nav a button:hover {
+      background-color: #e0941d;
+      border-color: #e0941d;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .main {
+      padding: 30px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.0em;
+      font-weight: 700;
+      margin: 40px 0 20px;
+      color: #333;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .row img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #fff1e0;
+      border-radius: 8px;
+    }
+
+    .publication-img {
+      margin-left: 30px;
+    }
+
+    .left, .right {
+      flex: 1;
+      padding: 15px;
+    }
+
+    .left p, .right p {
+      margin: 15px 0;
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .left p:first-child, .right p:first-child {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #f4a041;
+    }
+
+    .popup-border {
+      padding: 20px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: popUp 0.5s ease-out forwards;
+    }
+
+    @keyframes popUp {
+      0% {
+        transform: scale(1);
+        border-color: #000;
+        box-shadow: none;
+      }
+      100% {
+        transform: scale(1.05);
+        border-color: #f4a041;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .center-video {
+  display: block;
+  margin: 20px auto;
+  max-width: 70%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.genre-video {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  height: 340px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+    .center-img {
+      display: block;
+      margin: 0 auto;
+      border: 2px solid #000;
+      width: 80%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .team {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 30px;
+    }
+
+    .member img {
+      border-radius: 50%;
+      border: 2px solid #000;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .member p {
+      margin-top: 50px;
+      font-weight: bold;
+      font-size: 2 em;
+    }
+
+    footer {
+      margin-top: 40px;
+      border-top: 2px solid #000;
+      padding: 20px 30px;
+      background-color: #fff1e0;
+      font-size: 0.85em;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #f4a041;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .bottom-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.75em;
+      color: #777;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #f4a041;
+    }
+
+    .social-icon {
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .logo-img {
+      height: 80px;
+    }
+
+    .footer-logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .cart-icon, .profile-icon {
+      height: 24px;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      width: 250px;
+    }
+
+    .search-form button {
+      padding: 8px 15px;
+      background-color: #f4a041;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="top-row">
+      <a href="index.html"><img src="images/logo.png" alt="Logo" class="logo-img"></a>
+      <div class="icons">
+        <span>Hi, User!</span>
+        <a href="registration.html"><img src="images/profile.png" alt="Profile" class="profile-icon"></a>
+        <a href="cart.html"><img src="images/cart.png" alt="Cart" class="cart-icon"></a>
+        <form action="search.html" method="GET" target="_blank" class="search-form">
+          <input type="text" name="query" placeholder="Search books..." required>
+          <button type="submit">🔍</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a href="index.html"><button>Homepage</button></a>
+      <a href="aboutus.html"><button class="active">About Us</button></a>
+      <a href="collections.html"><button>Collections</button></a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <div class="section-title">About Us</div>
+
+    <div class="row">
+      <div class="left">
+        <div class="popup-border">
+          <p><strong>The Bibliophile Shop</strong></p>
+          <p>Welcome to Bibliopress, where our passion for books meets a love for the written word. At Bibliopress, we understand that books are more than just pages bound together—they are windows into other worlds, moments frozen in time, and keys to new adventures.</p>
+        </div>
+      </div>
+      <div class="right">
+        <img src="images/biblio shop.jpeg" alt="Shop Image">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="left">
+        <img src="images/publication.jpg" alt="First Publication" class="publication-img">
+      </div>
+      <div class="right">
+        <div class="popup-border">
+          <p><strong>First Publication</strong></p>
+          <p>Our very first publication was a book from China that we translated into Malay, capturing the spirit of our commitment to bringing high-quality, thought-provoking literature to our customers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Genre</div>
+
+<video class="center-video" autoplay loop muted playsinline>
+  <source src="videos/genre.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+    <div class="section-title">Our Team</div>
+    <div class="team">
+      <div class="member">
+        <img src="images/kiridaren.jpeg" alt="Team Member 1">
+        <p>Kiridaran Jayakumar</p>
+      </div>
+      <div class="member">
+        <img src="images/sam.jpg" alt="Team Member 2">
+        <p>Shamsul Amin</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <a href="index.html"><img src="images/logo.png" alt="Footer Logo" class="footer-logo"></a>
+        <h4>Social Media</h4>
+        <p><a href="https://www.facebook.com/bibliopress" target="_blank"><img src="images/facebook.png" class="social-icon" alt="Facebook"> The Biblio Press</a></p>
+        <p><a href="https://x.com/BiblioPress" target="_blank"><img src="images/x-twitter.jpg" class="social-icon" alt="Twitter"> @BiblioPress</a></p>
+        <p><a href="https://www.instagram.com/bibliopress/" target="_blank"><img src="images/instagram.png" class="social-icon" alt="Instagram"> @bibliopress</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 (+60) 14 947 0499</p>
+        <a href="mailto:info@thebibliopress.com">✉ info@thebibliopress.com</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Find Us</h4>
+        <p>📍 G22, Menara Mutiara Majestic,<br>Jalan Othman, 46000<br>Petaling Jaya,<br>Selangor, Malaysia.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Operating Hours</h4>
+        <p>🕒 Monday–Friday:<br>11.00 am – 6.00 pm</p>
+      </div>
+    </div>
+
+    <div class="bottom-footer">
+      © The Biblio Press Enterprise – Powered by <a href="#" target="_blank">Sindiket Tanda Bacha</a>. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
